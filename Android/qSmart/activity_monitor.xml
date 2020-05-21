@@ -1,0 +1,560 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/mon_snackbar_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#dcdcdc"
+        android:clickable="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mon_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorToolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mon_toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/layout_bg_rounded_corners"
+                app:layout_constraintBottom_toTopOf="@id/guideline10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
+
+                <TextView
+                    android:id="@+id/mon_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:text="Device Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/mon_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/mon_name"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cs_disconnected"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/layout_bg_rounded_corners"
+                app:layout_constraintBottom_toTopOf="@id/guideline40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline10"
+                >
+
+                <android.support.constraint.Group
+                    android:id="@+id/mon_grp_pit_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:constraint_referenced_ids="mon_alarm_low_value,mon_alarm_label,mon_alarm_high,mon_alarm_high_value,mon_alarm_low"/>
+
+                <TextView
+                    android:id="@+id/mon_probe1_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/no_value"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="70sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/mon_alarm_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High"
+                    app:layout_constraintStart_toStartOf="@+id/mon_alarm_low"
+                    app:layout_constraintTop_toBottomOf="@+id/mon_alarm_low"/>
+
+                <TextView
+                    android:id="@+id/mon_alarm_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="@+id/mon_alarm_label"
+                    app:layout_constraintTop_toBottomOf="@+id/mon_alarm_label"/>
+
+                <TextView
+                    android:id="@+id/mon_alarm_high_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="200"
+                    android:textColor="@android:color/holo_red_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/mon_alarm_high"
+                    app:layout_constraintStart_toEndOf="@+id/mon_alarm_high"
+                    app:layout_constraintTop_toTopOf="@+id/mon_alarm_high"/>
+
+                <TextView
+                    android:id="@+id/mon_alarm_low_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="160"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/mon_alarm_low"
+                    app:layout_constraintStart_toStartOf="@+id/mon_alarm_high_value"
+                    app:layout_constraintTop_toTopOf="@+id/mon_alarm_low"/>
+
+                <TextView
+                    android:id="@+id/mon_alarm_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Pit Alarm"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageButton
+                    android:id="@+id/mon_btn_config_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/blank"
+                    android:elevation="0dp"
+                    android:onClick="showParamSelectionPopup"
+                    android:src="@drawable/ic_gear_36"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/mon_error_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_alert_36"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/layout_bg_rounded_corners"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline60">
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/mon_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/guideline60"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline40">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_bg_rounded_corners"
+                    >
+
+                    <TextView
+                        android:id="@+id/mon_probe2_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_value"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mon_probe2_name"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe2_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/probe2default"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe2_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/no_value"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/mon_probe2_pit_set"/>
+
+                    <ImageView
+                        android:id="@+id/imageView30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_probe2_alarm"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_probe2_alarm"
+                        app:layout_constraintStart_toStartOf="@+id/mon_probe2_alarm"
+                        app:srcCompat="@drawable/ic_alarm_18"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe2_pit_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_value"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="20dp"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe2_target"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/no_value"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/mon_probe2_pit_set"/>
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_probe2_pit_set"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_probe2_pit_set"
+                        app:layout_constraintStart_toStartOf="@+id/mon_probe2_pit_set"
+                        app:srcCompat="@drawable/ic_pit_set_18"/>
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_probe2_target"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_probe2_target"
+                        app:layout_constraintStart_toStartOf="@+id/mon_probe2_target"
+                        app:srcCompat="@drawable/ic_probe_target_18"/>
+
+                    <android.support.constraint.Group
+                        android:id="@+id/mon_probe2_grp_pit_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        app:constraint_referenced_ids="mon_probe2_target,mon_probe2_pit_set,imageView4,imageView3"/>
+
+                    <android.support.constraint.Group
+                        android:id="@+id/mon_probe2_grp_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        app:constraint_referenced_ids="mon_probe2_alarm,imageView30"/>
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_bg_rounded_corners"
+                    >
+
+                    <TextView
+                        android:id="@+id/mon_delay_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="00:00"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/mon_pit_set_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/pit_set_default"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/mon_pit_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_value"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mon_pit_set_label"/>
+
+                    <android.support.constraint.Group
+                        android:id="@+id/mon_delay_grp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        app:constraint_referenced_ids="mon_delay_time,imageView8,imageView9,mon_delay_pit_set"/>
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_delay_time"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_delay_time"
+                        app:layout_constraintStart_toStartOf="@+id/mon_delay_time"
+                        app:srcCompat="@drawable/ic_alarm_18"/>
+
+                    <TextView
+                        android:id="@+id/mon_delay_pit_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_delay_pit_set"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_delay_pit_set"
+                        app:layout_constraintStart_toStartOf="@+id/mon_delay_pit_set"
+                        app:srcCompat="@drawable/ic_pit_set_18"/>
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_bg_rounded_corners"
+                    >
+
+                    <TextView
+                        android:id="@+id/mon_probe3_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/probe3default"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe3_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_value"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mon_probe3_name"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe3_pit_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe3_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/no_value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/mon_probe3_pit_set"/>
+
+                    <TextView
+                        android:id="@+id/mon_probe3_target"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/no_value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/mon_probe3_pit_set"/>
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_probe3_alarm"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_probe3_alarm"
+                        app:layout_constraintStart_toStartOf="@+id/mon_probe3_alarm"
+                        app:srcCompat="@drawable/ic_alarm_18"/>
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_probe3_pit_set"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_probe3_pit_set"
+                        app:layout_constraintStart_toStartOf="@+id/mon_probe3_pit_set"
+                        app:srcCompat="@drawable/ic_pit_set_18"/>
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/mon_probe3_target"
+                        app:layout_constraintEnd_toEndOf="@+id/mon_probe3_target"
+                        app:layout_constraintStart_toStartOf="@+id/mon_probe3_target"
+                        app:srcCompat="@drawable/ic_probe_target_18"/>
+
+                    <android.support.constraint.Group
+                        android:id="@+id/mon_probe3_grp_pit_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        app:constraint_referenced_ids="mon_probe3_pit_set,imageView7,imageView6,mon_probe3_target"/>
+
+                    <android.support.constraint.Group
+                        android:id="@+id/mon_probe3_grp_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        app:constraint_referenced_ids="mon_probe3_alarm,imageView5"/>
+                </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/mon_progress_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            android:animateLayoutChanges="true"
+            android:background="@android:color/black"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"/>
+        </FrameLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
